@@ -1,0 +1,49 @@
+/* ─── ADVANTAGES ─── */
+.advantages-grid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+gap: 24px;
+}
+
+.adv-card {
+background: rgba(255,255,255,0.04);
+border: 1px solid rgba(255,255,255,0.08);
+border-radius: var(--radius-lg);
+padding: 28px 24px;
+transition: all .25s;
+}
+
+.adv-card:hover {
+background: rgba(232,146,10,0.06);
+border-color: rgba(232,146,10,0.25);
+}
+
+.adv-icon {
+width: 48px; height: 48px;
+background: rgba(232,146,10,0.12);
+border-radius: 10px;
+display: flex;
+align-items: center;
+justify-content: center;
+margin-bottom: 16px;
+}
+
+.adv-icon svg { width: 24px; height: 24px; color: var(--amber); }
+
+.adv-stat {
+font-family: 'Bebas Neue', sans-serif;
+font-size: 48px;
+color: var(--amber);
+line-height: 1;
+margin-bottom: 4px;
+}
+
+.adv-title {
+font-family: 'Bebas Neue', sans-serif;
+font-size: 18px;
+color: #fff;
+letter-spacing: 0.04em;
+margin-bottom: 8px;
+}
+
+.adv-desc { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.6; }

@@ -1,1459 +1,536 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Знакомый Электрик — Николай | Электромонтажные работы</title>
-<meta name="description" content="Профессиональный электрик Николай. Электромонтажные работы в Вашем городе. Звоните: +7 939 704-37-07">
-<meta name="keywords" content="электрик, электромонтаж, проводка, щиток, розетки, выключатели">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Mulish:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
-
-<style>
-  :root {
-    --bg: #f5f4f0;
-    --surface: #ffffff;
-    --surface2: #f0ede6;
-    --border: #e0dbd0;
-    --text: #1a1a18;
-    --text-muted: #6b6b60;
-    --text-light: #9a9a8e;
-    --red: #c8281e;
-    --red-dark: #a01f17;
-    --amber: #e8920a;
-    --amber-light: #f5b030;
-    --dark: #1e1e1a;
-    --dark2: #2a2a24;
-    --header-h: 72px;
-    --radius: 4px;
-    --radius-lg: 12px;
-  }
-
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'Mulish', sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    overflow-x: hidden;
-  }
-
-  h1, h2, h3, h4 { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.04em; }
-
-  a { text-decoration: none; color: inherit; }
-
-  img { display: block; max-width: 100%; }
-
-  /* ─── HEADER ─── */
-  #header {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    height: var(--header-h);
-    background: var(--dark);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 28px;
-    z-index: 1000;
-    border-bottom: 2px solid var(--amber);
-    gap: 16px;
-  }
-
-  .logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    flex-shrink: 0;
-  }
-
-  .logo-bolt {
-    width: 36px; height: 36px;
-    background: var(--amber);
-    clip-path: polygon(60% 0%, 100% 0%, 40% 50%, 80% 50%, 0% 100%, 20% 55%, -10% 55%);
-    flex-shrink: 0;
-  }
-
-  .logo-text {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 20px;
-    letter-spacing: 0.06em;
-    color: #fff;
-    line-height: 1.1;
-  }
-
-  .logo-text span { color: var(--amber); }
-
-  .header-center {
-    display: flex;
-    align-items: center;
-    gap: 24px;
-  }
-
-  .header-location {
-    text-align: right;
-    color: rgba(255,255,255,0.6);
-    font-size: 12px;
-    line-height: 1.4;
-  }
-
-  .header-location strong {
-    display: block;
-    color: #fff;
-    font-size: 13px;
-  }
-
-  .header-phone {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 20px;
-    color: var(--amber);
-    letter-spacing: 0.06em;
-    white-space: nowrap;
-  }
-
-  .header-phone:hover { color: var(--amber-light); }
-
-  .header-socials {
-    display: flex;
-    gap: 10px;
-  }
-
-  .header-socials a {
-    width: 34px; height: 34px;
-    border: 1px solid rgba(255,255,255,0.2);
-    border-radius: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all .2s;
-    color: rgba(255,255,255,0.7);
-  }
-
-  .header-socials a:hover {
-    background: var(--amber);
-    border-color: var(--amber);
-    color: var(--dark);
-  }
-
-  .header-socials svg { width: 16px; height: 16px; }
-
-  .burger {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-    padding: 4px;
-    background: none;
-    border: none;
-  }
-
-  .burger span {
-    display: block;
-    width: 24px; height: 2px;
-    background: #fff;
-    border-radius: 2px;
-    transition: all .3s;
-  }
-
-  /* ─── NAV ─── */
-  #nav {
-    position: sticky;
-    top: var(--header-h);
-    background: var(--surface);
-    border-bottom: 1px solid var(--border);
-    z-index: 900;
-    overflow-x: auto;
-    scrollbar-width: none;
-  }
-
-  #nav::-webkit-scrollbar { display: none; }
-
-  .nav-list {
-    display: flex;
-    list-style: none;
-    padding: 0 28px;
-    gap: 0;
-  }
-
-  .nav-list a {
-    display: block;
-    padding: 16px 18px;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    white-space: nowrap;
-    border-bottom: 3px solid transparent;
-    transition: all .2s;
-  }
-
-  .nav-list a:hover,
-  .nav-list a.active {
-    color: var(--red);
-    border-bottom-color: var(--red);
-  }
-
-  /* ─── HERO ─── */
-  #hero {
-    margin-top: var(--header-h);
-    background: var(--dark);
-    min-height: 560px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    overflow: hidden;
-    position: relative;
-  }
-
-  .hero-pattern {
-    position: absolute;
-    inset: 0;
-    background-image:
-      repeating-linear-gradient(
-        -45deg,
-        transparent,
-        transparent 20px,
-        rgba(255,255,255,0.015) 20px,
-        rgba(255,255,255,0.015) 21px
-      );
-  }
-
-  .hero-content {
-    position: relative;
-    z-index: 2;
-    padding: 64px 48px 64px 48px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 24px;
-  }
-
-  .hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--amber);
-    color: var(--dark);
-    font-size: 11px;
-    font-weight: 900;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    padding: 6px 14px;
-    border-radius: 2px;
-    width: fit-content;
-  }
-
-  .hero-name {
-    font-size: clamp(52px, 7vw, 88px);
-    color: #fff;
-    line-height: 0.9;
-  }
-
-  .hero-name span { color: var(--amber); }
-
-  .hero-tagline {
-    font-size: 15px;
-    color: rgba(255,255,255,0.55);
-    font-weight: 400;
-    max-width: 340px;
-    line-height: 1.6;
-    border-left: 3px solid var(--red);
-    padding-left: 14px;
-  }
-
-  .hero-phone-wrap {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    flex-wrap: wrap;
-  }
-
-  .hero-phone {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 32px;
-    color: var(--amber);
-    letter-spacing: 0.06em;
-  }
-
-  .hero-phone:hover { color: var(--amber-light); }
-
-  .btn-call {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--red);
-    color: #fff;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    padding: 12px 24px;
-    border-radius: var(--radius);
-    border: none;
-    cursor: pointer;
-    transition: all .2s;
-    text-decoration: none;
-  }
-
-  .btn-call:hover { background: var(--red-dark); transform: translateY(-1px); }
-
-  .hero-geo {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    color: rgba(255,255,255,0.45);
-    font-size: 13px;
-  }
-
-  .hero-geo svg { width: 14px; height: 14px; color: var(--amber); flex-shrink: 0; }
-
-  .hero-socials {
-    display: flex;
-    gap: 10px;
-    margin-top: 4px;
-  }
-
-  .social-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 9px 18px;
-    border: 1px solid rgba(255,255,255,0.15);
-    border-radius: 100px;
-    font-size: 13px;
-    font-weight: 600;
-    color: rgba(255,255,255,0.8);
-    transition: all .2s;
-  }
-
-  .social-pill:hover {
-    background: rgba(255,255,255,0.08);
-    border-color: rgba(255,255,255,0.3);
-    color: #fff;
-  }
-
-  .social-pill svg { width: 18px; height: 18px; }
-
-  .hero-image-wrap {
-    position: relative;
-    z-index: 2;
-    overflow: hidden;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-  }
-
-  .hero-image-bg {
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse at 70% 30%, rgba(232,146,10,0.15) 0%, transparent 60%),
-      radial-gradient(ellipse at 30% 80%, rgba(200,40,30,0.1) 0%, transparent 50%);
-  }
-
-  .hero-img-placeholder {
-    position: relative;
-    z-index: 2;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 20px;
-    padding: 48px;
-  }
-
-  .hero-icon-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    width: 100%;
-    max-width: 320px;
-  }
-
-  .hero-icon-card {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 12px;
-    padding: 20px 12px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    transition: all .3s;
-    cursor: default;
-  }
-
-  .hero-icon-card:hover {
-    background: rgba(232,146,10,0.12);
-    border-color: rgba(232,146,10,0.4);
-    transform: translateY(-3px);
-  }
-
-  .hero-icon-card svg { width: 28px; height: 28px; color: var(--amber); }
-  .hero-icon-card span { font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.55); letter-spacing: 0.05em; text-transform: uppercase; }
-
-  /* ─── SECTIONS COMMON ─── */
-  .section { padding: 80px 0; }
-  .section-alt { background: var(--surface2); }
-  .section-dark { background: var(--dark); }
-
-  .container { max-width: 1140px; margin: 0 auto; padding: 0 28px; }
-
-  .section-header { margin-bottom: 52px; }
-
-  .section-label {
-    display: inline-block;
-    font-size: 11px;
-    font-weight: 900;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--red);
-    margin-bottom: 10px;
-  }
-
-  .section-title {
-    font-size: clamp(36px, 5vw, 60px);
-    line-height: 0.95;
-    color: var(--text);
-  }
-
-  .section-dark .section-title { color: #fff; }
-  .section-dark .section-label { color: var(--amber); }
-
-  .section-desc {
-    margin-top: 14px;
-    font-size: 15px;
-    color: var(--text-muted);
-    max-width: 520px;
-    line-height: 1.65;
-  }
-
-  .section-dark .section-desc { color: rgba(255,255,255,0.5); }
-
-  /* ─── SERVICES ─── */
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 20px;
-  }
-
-  .service-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    transition: all .25s;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .service-card:hover {
-    border-color: var(--amber);
-    box-shadow: 0 8px 32px rgba(0,0,0,0.08);
-    transform: translateY(-3px);
-  }
-
-  .service-img {
-    height: 160px;
-    background: var(--surface2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-bottom: 1px solid var(--border);
-    overflow: hidden;
-    position: relative;
-  }
-
-  .service-img-bg {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .service-img svg { width: 64px; height: 64px; color: var(--amber); opacity: 0.25; }
-  .service-img .service-icon { position: relative; z-index: 2; }
-  .service-img .service-icon svg { width: 52px; height: 52px; color: var(--amber); opacity: 1; }
-
-  .service-body { padding: 20px; flex: 1; display: flex; flex-direction: column; gap: 10px; }
-
-  .service-name {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 22px;
-    letter-spacing: 0.04em;
-    line-height: 1;
-  }
-
-  .service-desc { font-size: 13px; color: var(--text-muted); line-height: 1.6; flex: 1; }
-
-  .btn-outline-call {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 9px 18px;
-    border: 1.5px solid var(--red);
-    color: var(--red);
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    border-radius: var(--radius);
-    transition: all .2s;
-    width: fit-content;
-  }
-
-  .btn-outline-call:hover { background: var(--red); color: #fff; }
-
-  /* ─── ADVANTAGES ─── */
-  .advantages-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 24px;
-  }
-
-  .adv-card {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: var(--radius-lg);
-    padding: 28px 24px;
-    transition: all .25s;
-  }
-
-  .adv-card:hover {
-    background: rgba(232,146,10,0.06);
-    border-color: rgba(232,146,10,0.25);
-  }
-
-  .adv-icon {
-    width: 48px; height: 48px;
-    background: rgba(232,146,10,0.12);
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 16px;
-  }
-
-  .adv-icon svg { width: 24px; height: 24px; color: var(--amber); }
-
-  .adv-stat {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 48px;
-    color: var(--amber);
-    line-height: 1;
-    margin-bottom: 4px;
-  }
-
-  .adv-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 18px;
-    color: #fff;
-    letter-spacing: 0.04em;
-    margin-bottom: 8px;
-  }
-
-  .adv-desc { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.6; }
-
-  /* ─── REVIEWS ─── */
-  .reviews-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-  }
-
-  .review-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    padding: 28px;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    transition: border-color .2s;
-  }
-
-  .review-card:hover { border-color: var(--amber); }
-
-  .review-stars { display: flex; gap: 3px; }
-  .review-stars svg { width: 16px; height: 16px; color: var(--amber); fill: var(--amber); }
-
-  .review-text {
-    font-size: 14px;
-    color: var(--text);
-    line-height: 1.65;
-    flex: 1;
-  }
-
-  .review-text.clamped {
-    display: -webkit-box;
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-
-  .review-author {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding-top: 10px;
-    border-top: 1px solid var(--border);
-  }
-
-  .review-avatar {
-    width: 40px; height: 40px;
-    border-radius: 50%;
-    background: var(--surface2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 18px;
-    color: var(--amber);
-    flex-shrink: 0;
-  }
-
-  .review-name { font-weight: 700; font-size: 14px; }
-  .review-meta { font-size: 12px; color: var(--text-light); margin-top: 2px; }
-
-  .btn-expand {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 12px;
-    font-weight: 700;
-    color: var(--red);
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    padding: 0;
-    width: fit-content;
-  }
-
-  .btn-expand:hover { color: var(--red-dark); }
-
-  /* ─── FAQ ─── */
-  .faq-list { display: flex; flex-direction: column; gap: 4px; }
-
-  .faq-item {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-  }
-
-  .faq-q {
-    width: 100%;
-    text-align: left;
-    padding: 20px 24px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-family: 'Mulish', sans-serif;
-    font-size: 15px;
-    font-weight: 700;
-    color: var(--text);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 16px;
-    transition: color .2s;
-  }
-
-  .faq-q:hover { color: var(--red); }
-
-  .faq-arrow {
-    width: 20px; height: 20px;
-    flex-shrink: 0;
-    color: var(--text-light);
-    transition: transform .3s;
-  }
-
-  .faq-item.open .faq-arrow { transform: rotate(180deg); color: var(--red); }
-  .faq-item.open .faq-q { color: var(--red); }
-
-  .faq-a {
-    display: none;
-    padding: 0 24px 20px;
-    font-size: 14px;
-    color: var(--text-muted);
-    line-height: 1.7;
-    border-top: 1px solid var(--border);
-    padding-top: 16px;
-  }
-
-  .faq-item.open .faq-a { display: block; }
-
-  /* ─── CONTACTS ─── */
-  .contacts-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 48px;
-    align-items: start;
-  }
-
-  .contact-block {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-  }
-
-  .contact-row {
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
-  }
-
-  .contact-icon {
-    width: 44px; height: 44px;
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
-
-  .contact-icon svg { width: 20px; height: 20px; color: var(--red); }
-
-  .contact-label { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-light); margin-bottom: 4px; }
-  .contact-value { font-size: 17px; font-weight: 700; color: var(--text); }
-  .contact-value a:hover { color: var(--red); }
-
-  .schedule-table { width: 100%; border-collapse: collapse; font-size: 14px; }
-  .schedule-table td { padding: 10px 0; border-bottom: 1px solid var(--border); }
-  .schedule-table td:first-child { color: var(--text-muted); width: 55%; }
-  .schedule-table td:last-child { font-weight: 700; text-align: right; }
-  .badge-open { background: #e6f7ec; color: #1a8a3a; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 8px; border-radius: 100px; }
-
-  /* ─── FORM ─── */
-  .form-wrap {
-    background: var(--dark2);
-    border: 1px solid rgba(255,255,255,0.07);
-    border-radius: var(--radius-lg);
-    padding: 40px;
-    max-width: 520px;
-  }
-
-  .form-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 32px;
-    color: #fff;
-    letter-spacing: 0.04em;
-    margin-bottom: 8px;
-  }
-
-  .form-sub { font-size: 13px; color: rgba(255,255,255,0.45); margin-bottom: 28px; }
-
-  .form-group { margin-bottom: 16px; }
-
-  .form-label { display: block; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 8px; }
-
-  .form-input {
-    width: 100%;
-    padding: 12px 16px;
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: var(--radius);
-    font-family: 'Mulish', sans-serif;
-    font-size: 14px;
-    color: #fff;
-    outline: none;
-    transition: border-color .2s;
-  }
-
-  .form-input::placeholder { color: rgba(255,255,255,0.25); }
-  .form-input:focus { border-color: var(--amber); }
-
-  .form-check {
-    display: flex;
-    gap: 10px;
-    align-items: flex-start;
-    margin-bottom: 24px;
-    cursor: pointer;
-  }
-
-  .form-check input[type="checkbox"] {
-    width: 16px; height: 16px;
-    margin-top: 2px;
-    flex-shrink: 0;
-    cursor: pointer;
-    accent-color: var(--amber);
-  }
-
-  .form-check-label { font-size: 12px; color: rgba(255,255,255,0.35); line-height: 1.5; }
-  .form-check-label a { color: var(--amber); }
-
-  .btn-submit {
-    width: 100%;
-    padding: 14px;
-    background: var(--red);
-    color: #fff;
-    font-family: 'Mulish', sans-serif;
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    border: none;
-    border-radius: var(--radius);
-    cursor: pointer;
-    transition: all .2s;
-  }
-
-  .btn-submit:hover { background: var(--red-dark); transform: translateY(-1px); }
-
-  /* ─── FOOTER ─── */
-  #footer {
-    background: var(--dark);
-    border-top: 1px solid rgba(255,255,255,0.06);
-    padding: 28px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 16px;
-  }
-
-  .footer-copy {
-    font-size: 13px;
-    color: rgba(255,255,255,0.3);
-  }
-
-  .footer-sig {
-    font-size: 13px;
-    color: rgba(255,255,255,0.3);
-    text-align: right;
-  }
-
-  .footer-sig strong { color: rgba(255,255,255,0.6); }
-
-  /* ─── MOBILE MENU ─── */
-  .mobile-menu {
-    display: none;
-    position: fixed;
-    top: var(--header-h);
-    left: 0; right: 0;
-    background: var(--dark2);
-    border-top: 1px solid rgba(255,255,255,0.06);
-    z-index: 950;
-    padding: 16px 0;
-  }
-
-  .mobile-menu.open { display: block; }
-
-  .mobile-menu a {
-    display: block;
-    padding: 14px 28px;
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.7);
-    border-left: 3px solid transparent;
-    transition: all .2s;
-  }
-
-  .mobile-menu a:hover {
-    color: var(--amber);
-    border-left-color: var(--amber);
-    background: rgba(255,255,255,0.03);
-  }
-
-  /* ─── RESPONSIVE ─── */
-  @media (max-width: 900px) {
-    #hero { grid-template-columns: 1fr; }
-    .hero-image-wrap { display: none; }
-    .hero-content { padding: 48px 28px; }
-    .contacts-grid { grid-template-columns: 1fr; gap: 32px; }
-  }
-
-  @media (max-width: 640px) {
-    .header-location, .header-phone { display: none; }
-    .burger { display: flex; }
-    .header-socials { display: none; }
-    .hero-content { padding: 36px 20px; }
-    .section { padding: 56px 0; }
-    .form-wrap { padding: 28px 20px; }
-    #footer { flex-direction: column; text-align: center; }
-    .footer-sig { text-align: center; }
-  }
-</style>
-</head>
-<body>
-
-<!-- HEADER -->
-<header id="header">
-  <div class="logo">
-    <div class="logo-bolt"></div>
-    <div class="logo-text">Знакомый<br><span>Электрик</span></div>
-  </div>
-
-  <div class="header-center">
-    <div class="header-location">
-      <strong>Ваш город</strong>
-      Электромонтаж
-    </div>
-    <a href="tel:+79397043707" class="header-phone">+7 939 704-37-07</a>
-    <div class="header-socials">
-      <a href="https://t.me/+79397043707" target="_blank" aria-label="Telegram">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.96 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
-      </a>
-      <a href="https://vk.com" target="_blank" aria-label="ВКонтакте">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.408 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.862-.523-2.049-1.713-1.033-1.01-1.49-.525-1.49.516v1.197c0 .304-.229.525-.525.525h-.607c-1.744 0-3.693-1.061-5.061-3.034-2.05-2.9-2.614-5.042-2.614-5.494 0-.33.234-.55.525-.55h1.764c.389 0 .525.184.66.553.669 1.992 1.788 3.738 2.25 3.738.172 0 .262-.08.262-.52V9.498c-.053-.929-.543-.98-.543-1.303 0-.182.145-.37.38-.37h2.778c.33 0 .447.178.447.567v3.037c0 .33.146.447.234.447.17 0 .316-.117.635-.447 1.177-1.338 2.025-3.4 2.025-3.4.093-.184.31-.367.635-.367h1.764c.524 0 .64.275.524.55-.222.895-2.36 4.039-2.36 4.039-.17.274-.237.406 0 .708.172.236 1.135 1.103 1.717 1.784.995 1.162 1.7 2.106 1.7 2.106.094.275-.08.55-.37.55z"/></svg>
-      </a>
-    </div>
-  </div>
-
-  <button class="burger" id="burgerBtn" aria-label="Меню">
-    <span></span><span></span><span></span>
-  </button>
-</header>
-
-<!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobileMenu">
-  <a href="#services" onclick="closeMobile()">Услуги</a>
-  <a href="#about" onclick="closeMobile()">О нас</a>
-  <a href="#reviews" onclick="closeMobile()">Отзывы</a>
-  <a href="#faq" onclick="closeMobile()">Вопросы и ответы</a>
-  <a href="#contacts" onclick="closeMobile()">Контакты</a>
-</div>
-
-<!-- NAV -->
-<nav id="nav">
-  <ul class="nav-list">
-    <li><a href="#services">Услуги</a></li>
-    <li><a href="#about">О нас</a></li>
-    <li><a href="#works">Примеры работ</a></li>
-    <li><a href="#faq">Вопрос — ответ</a></li>
-    <li><a href="#contacts">Контакты</a></li>
-  </ul>
-</nav>
-
-<!-- HERO -->
-<section id="hero">
-  <div class="hero-pattern"></div>
-  <div class="hero-content">
-    <div class="hero-badge">
-      <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-      Профессиональный электрик
-    </div>
-
-    <h1 class="hero-name">НИКОЛАЙ<br><span>ЭЛЕКТРИК</span></h1>
-
-    <p class="hero-tagline">
-      Электромонтажные работы любой сложности — от розетки до замены проводки в квартире или доме
-    </p>
-
-    <div class="hero-phone-wrap">
-      <a href="tel:+79397043707" class="hero-phone">+7 939 704-37-07</a>
-      <a href="tel:+79397043707" class="btn-call">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.5 9.82a19.79 19.79 0 01-3.07-8.63A2 2 0 012.45 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
-        Позвонить
-      </a>
-    </div>
-
-    <div class="hero-geo">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-      Работаю по Вашему городу и пригороду
-    </div>
-
-    <div class="hero-socials">
-      <a href="https://t.me/+79397043707" class="social-pill" target="_blank">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.96 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
-        Telegram
-      </a>
-      <a href="https://vk.com" class="social-pill" target="_blank">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.408 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.862-.523-2.049-1.713-1.033-1.01-1.49-.525-1.49.516v1.197c0 .304-.229.525-.525.525h-.607c-1.744 0-3.693-1.061-5.061-3.034-2.05-2.9-2.614-5.042-2.614-5.494 0-.33.234-.55.525-.55h1.764c.389 0 .525.184.66.553.669 1.992 1.788 3.738 2.25 3.738.172 0 .262-.08.262-.52V9.498c-.053-.929-.543-.98-.543-1.303 0-.182.145-.37.38-.37h2.778c.33 0 .447.178.447.567v3.037c0 .33.146.447.234.447.17 0 .316-.117.635-.447 1.177-1.338 2.025-3.4 2.025-3.4.093-.184.31-.367.635-.367h1.764c.524 0 .64.275.524.55-.222.895-2.36 4.039-2.36 4.039-.17.274-.237.406 0 .708.172.236 1.135 1.103 1.717 1.784.995 1.162 1.7 2.106 1.7 2.106.094.275-.08.55-.37.55z"/></svg>
-        ВКонтакте
-      </a>
-    </div>
-  </div>
-
-  <div class="hero-image-wrap">
-    <div class="hero-image-bg"></div>
-    <div class="hero-img-placeholder">
-      <div class="hero-icon-grid">
-        <div class="hero-icon-card">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-          <span>Щитки</span>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Знакомый Электрик — Николай | Электромонтажные работы</title>
+        <meta name="description" content="Профессиональный электрик Николай. Электромонтажные работы в Вашем городе. Звоните: +7 939 704-37-07">
+        <meta name="keywords" content="электрик, электромонтаж, проводка, щиток, розетки, выключатели">
+
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Mulish:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+    </head>
+    <body>
+
+        <!-- HEADER -->
+        <header id="header">
+        <div class="logo">
+            <div class="logo-bolt"></div>
+            <div class="logo-text">Знакомый<br><span>Электрик</span></div>
         </div>
-        <div class="hero-icon-card">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-          <span>Проводка</span>
-        </div>
-        <div class="hero-icon-card">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
-          <span>Освещение</span>
-        </div>
-        <div class="hero-icon-card">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="17" r="1"/></svg>
-          <span>Розетки</span>
-        </div>
-        <div class="hero-icon-card">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-          <span>Дома</span>
-        </div>
-        <div class="hero-icon-card">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          <span>Гарантия</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- SERVICES -->
-<section class="section" id="services">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-label">Что я делаю</span>
-      <h2 class="section-title">УСЛУГИ</h2>
-      <p class="section-desc">Выполняю полный спектр электромонтажных работ для квартир, домов и нежилых помещений</p>
-    </div>
+        <div class="header-center">
+            <div class="header-location">
+            <strong>Самара</strong>
+            Электромонтаж
+            </div>
+            <a href="tel:+79397043707" class="header-phone">+7 939 704-37-07</a>
+            <div class="header-socials">
+            <a href="https://t.me/+79397043707" target="_blank" aria-label="Telegram">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.96 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+            </a>
+            <a href="https://vk.com" target="_blank" aria-label="ВКонтакте">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.408 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.862-.523-2.049-1.713-1.033-1.01-1.49-.525-1.49.516v1.197c0 .304-.229.525-.525.525h-.607c-1.744 0-3.693-1.061-5.061-3.034-2.05-2.9-2.614-5.042-2.614-5.494 0-.33.234-.55.525-.55h1.764c.389 0 .525.184.66.553.669 1.992 1.788 3.738 2.25 3.738.172 0 .262-.08.262-.52V9.498c-.053-.929-.543-.98-.543-1.303 0-.182.145-.37.38-.37h2.778c.33 0 .447.178.447.567v3.037c0 .33.146.447.234.447.17 0 .316-.117.635-.447 1.177-1.338 2.025-3.4 2.025-3.4.093-.184.31-.367.635-.367h1.764c.524 0 .64.275.524.55-.222.895-2.36 4.039-2.36 4.039-.17.274-.237.406 0 .708.172.236 1.135 1.103 1.717 1.784.995 1.162 1.7 2.106 1.7 2.106.094.275-.08.55-.37.55z"/></svg>
+            </a>
+            </div>
+        </div>
 
-    <div class="services-grid">
-
-      <div class="service-card">
-        <div class="service-img">
-          <div class="service-img-bg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
-          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
-        </div>
-        <div class="service-body">
-          <div class="service-name">Замена проводки</div>
-          <p class="service-desc">Полная замена или частичный ремонт электропроводки в квартире, доме или офисе. Прокладка кабеля в штробе или кабель-канале.</p>
-          <a href="tel:+79397043707" class="btn-outline-call">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.5 9.82 19.79 19.79 0 01.43 1.19 2 2 0 012.45 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
-            Позвонить
-          </a>
-        </div>
-      </div>
-
-      <div class="service-card">
-        <div class="service-img">
-          <div class="service-img-bg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="2" y="3" width="20" height="14" rx="2"/></svg></div>
-          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
-        </div>
-        <div class="service-body">
-          <div class="service-name">Монтаж щитка</div>
-          <p class="service-desc">Установка, замена и сборка электрощитов под ключ. Правильная разводка и маркировка групп автоматов.</p>
-          <a href="tel:+79397043707" class="btn-outline-call">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.5 9.82 19.79 19.79 0 01.43 1.19 2 2 0 012.45 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
-            Позвонить
-          </a>
-        </div>
-      </div>
-
-      <div class="service-card">
-        <div class="service-img">
-          <div class="service-img-bg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="5" y="2" width="14" height="20" rx="2"/></svg></div>
-          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="17" r="1"/></svg></div>
-        </div>
-        <div class="service-body">
-          <div class="service-name">Розетки и выключатели</div>
-          <p class="service-desc">Установка, перенос или замена розеток, выключателей, диммеров. Любые типы и серии.</p>
-          <a href="tel:+79397043707" class="btn-outline-call">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.5 9.82 19.79 19.79 0 01.43 1.19 2 2 0 012.45 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
-            Позвонить
-          </a>
-        </div>
-      </div>
-
-      <div class="service-card">
-        <div class="service-img">
-          <div class="service-img-bg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="12" cy="12" r="10"/></svg></div>
-          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div>
-        </div>
-        <div class="service-body">
-          <div class="service-name">Монтаж освещения</div>
-          <p class="service-desc">Установка люстр, светильников, споты, LED-лент, точечного освещения. Работа со всеми типами потолков.</p>
-          <a href="tel:+79397043707" class="btn-outline-call">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.5 9.82 19.79 19.79 0 01.43 1.19 2 2 0 012.45 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
-            Позвонить
-          </a>
-        </div>
-      </div>
-
-      <div class="service-card">
-        <div class="service-img">
-          <div class="service-img-bg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div>
-          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
-        </div>
-        <div class="service-body">
-          <div class="service-name">Электрика в новостройках</div>
-          <p class="service-desc">Электромонтаж «под ключ» в квартирах без отделки и домах. Разработка схемы, монтаж с нуля.</p>
-          <a href="tel:+79397043707" class="btn-outline-call">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.5 9.82 19.79 19.79 0 01.43 1.19 2 2 0 012.45 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
-            Позвонить
-          </a>
-        </div>
-      </div>
-
-      <div class="service-card">
-        <div class="service-img">
-          <div class="service-img-bg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 6-6"/></svg></div>
-          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></div>
-        </div>
-        <div class="service-body">
-          <div class="service-name">Аварийный ремонт</div>
-          <p class="service-desc">Быстрый выезд при аварийных ситуациях: нет света, выбивает автомат, искрит проводка. Выезжаю оперативно.</p>
-          <a href="tel:+79397043707" class="btn-outline-call">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.5 9.82 19.79 19.79 0 01.43 1.19 2 2 0 012.45 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
-            Позвонить
-          </a>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ADVANTAGES / ABOUT -->
-<section class="section section-dark" id="about">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-label">Почему выбирают меня</span>
-      <h2 class="section-title">О МНЕ</h2>
-      <p class="section-desc">Работаю качественно, аккуратно и с гарантией. Материалы по необходимости закупаю сам.</p>
-    </div>
-
-    <div class="advantages-grid">
-      <div class="adv-card">
-        <div class="adv-stat">10+</div>
-        <div class="adv-title">Лет опыта</div>
-        <p class="adv-desc">Более десяти лет практики в электромонтаже жилых и коммерческих объектов</p>
-      </div>
-      <div class="adv-card">
-        <div class="adv-stat">500+</div>
-        <div class="adv-title">Объектов сдано</div>
-        <p class="adv-desc">Квартиры, частные дома, офисы, магазины — каждый объект сдан вовремя и с гарантией</p>
-      </div>
-      <div class="adv-card">
-        <div class="adv-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        </div>
-        <div class="adv-title">Гарантия на работы</div>
-        <p class="adv-desc">Даю письменную гарантию на все выполненные работы. При необходимости приеду и исправлю</p>
-      </div>
-      <div class="adv-card">
-        <div class="adv-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
-        </div>
-        <div class="adv-title">Проф. инструмент</div>
-        <p class="adv-desc">Работаю только профессиональным инструментом — качество монтажа и скорость выше</p>
-      </div>
-      <div class="adv-card">
-        <div class="adv-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        </div>
-        <div class="adv-title">Чистота на объекте</div>
-        <p class="adv-desc">Работаю аккуратно: пылесос, защитные чехлы. После завершения работ убираю за собой</p>
-      </div>
-      <div class="adv-card">
-        <div class="adv-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
-        </div>
-        <div class="adv-title">Закупка материалов</div>
-        <p class="adv-desc">При необходимости самостоятельно закупаю нужные материалы по хорошим ценам</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- WORKS (placeholder section) -->
-<section class="section section-alt" id="works">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-label">Мои работы</span>
-      <h2 class="section-title">ПРИМЕРЫ РАБОТ</h2>
-      <p class="section-desc">Фотографии с реальных объектов — квартиры, дома, щитки, осветительные системы</p>
-    </div>
-    <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(220px,1fr)); gap:16px;">
-      <!-- placeholders -->
-      <div style="background:var(--border); border-radius:var(--radius-lg); height:200px; display:flex; align-items:center; justify-content:center; color:var(--text-light); font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; text-align:center; padding:16px;">Фото<br>появятся<br>скоро</div>
-      <div style="background:var(--border); border-radius:var(--radius-lg); height:200px; display:flex; align-items:center; justify-content:center; color:var(--text-light); font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; text-align:center; padding:16px;">Замена<br>проводки</div>
-      <div style="background:var(--border); border-radius:var(--radius-lg); height:200px; display:flex; align-items:center; justify-content:center; color:var(--text-light); font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; text-align:center; padding:16px;">Монтаж<br>щитка</div>
-      <div style="background:var(--border); border-radius:var(--radius-lg); height:200px; display:flex; align-items:center; justify-content:center; color:var(--text-light); font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; text-align:center; padding:16px;">Освещение</div>
-    </div>
-  </div>
-</section>
-
-<!-- REVIEWS -->
-<section class="section" id="reviews">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-label">Клиенты о работе</span>
-      <h2 class="section-title">ОТЗЫВЫ</h2>
-    </div>
-
-    <div class="reviews-grid">
-
-      <div class="review-card">
-        <div class="review-stars">
-          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        </div>
-        <p class="review-text clamped" id="r1">Николай делал полную замену проводки в нашей двушке. Работал аккуратно — постелил плёнку, убрал за собой всю пыль. Всё сделал за 3 дня, как и договаривались. Розетки и выключатели установил ровно и аккуратно. Очень довольны результатом, рекомендую!</p>
-        <button class="btn-expand" onclick="toggleReview('r1', this)">Читать полностью</button>
-        <div class="review-author">
-          <div class="review-avatar">А</div>
-          <div>
-            <div class="review-name">Анна К.</div>
-            <div class="review-meta">Замена проводки, квартира</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="review-card">
-        <div class="review-stars">
-          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        </div>
-        <p class="review-text clamped" id="r2">Вызывал мастера по аварийной ситуации — выбивало автоматы. Приехал быстро, нашёл причину, объяснил, устранил. Цена за работу адекватная. Теперь всегда обращаюсь только к Николаю по всем вопросам с электрикой.</p>
-        <button class="btn-expand" onclick="toggleReview('r2', this)">Читать полностью</button>
-        <div class="review-author">
-          <div class="review-avatar">С</div>
-          <div>
-            <div class="review-name">Сергей М.</div>
-            <div class="review-meta">Аварийный ремонт</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="review-card">
-        <div class="review-stars">
-          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        </div>
-        <p class="review-text clamped" id="r3">Заказывала монтаж освещения в новой квартире: споты на кухне, люстры в комнатах, LED-ленты в нишах. Всё сделано красиво и аккуратно. Провода спрятаны, нигде не торчат. Точно буду рекомендовать всем знакомым!</p>
-        <button class="btn-expand" onclick="toggleReview('r3', this)">Читать полностью</button>
-        <div class="review-author">
-          <div class="review-avatar">О</div>
-          <div>
-            <div class="review-name">Ольга Т.</div>
-            <div class="review-meta">Монтаж освещения</div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section class="section section-alt" id="faq">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-label">Часто спрашивают</span>
-      <h2 class="section-title">ВОПРОС — ОТВЕТ</h2>
-    </div>
-
-    <div class="faq-list" style="max-width: 760px;">
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          Как быстро вы приедете?
-          <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        <button class="burger" id="burgerBtn" aria-label="Меню">
+            <span></span><span></span><span></span>
         </button>
-        <div class="faq-a">Стараюсь приезжать в день обращения или на следующий день. При аварийной ситуации — по возможности максимально быстро. Конкретное время согласовываем по телефону.</div>
-      </div>
+        </header>
 
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          По каким районам работаете?
-          <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-        </button>
-        <div class="faq-a">Работаю по всему городу и ближайшим пригородным районам. Уточняйте по телефону — скорее всего, смогу приехать к вам.</div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          Даёте ли гарантию на работы?
-          <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-        </button>
-        <div class="faq-a">Да, даю гарантию на все выполненные работы. Если в гарантийный период возникнет проблема по моей вине — приеду и устраню бесплатно.</div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          Заключаете ли договор?
-          <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-        </button>
-        <div class="faq-a">По желанию заказчика могу работать по договору. Для большинства бытовых задач клиенты предпочитают работать без излишней бюрократии — просто по договорённости.</div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          Нужно ли покупать материалы заранее?
-          <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-        </button>
-        <div class="faq-a">Нет, это необязательно. Если нужно — закуплю всё необходимое сам по хорошим ценам. Вы также можете купить материалы самостоятельно — установлю то, что вы выбрали.</div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- CONTACTS + FORM -->
-<section class="section section-dark" id="contacts">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-label">Связаться</span>
-      <h2 class="section-title">КОНТАКТЫ</h2>
-    </div>
-
-    <div class="contacts-grid">
-      <div class="contact-block">
-
-        <div class="contact-row">
-          <div class="contact-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.5 9.82 19.79 19.79 0 01.43 1.19 2 2 0 012.45 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
-          </div>
-          <div>
-            <div class="contact-label">Телефон</div>
-            <div class="contact-value"><a href="tel:+79397043707">+7 939 704-37-07</a></div>
-          </div>
+        <!-- MOBILE MENU -->
+        <div class="mobile-menu" id="mobileMenu">
+        <a href="#services" onclick="closeMobile()">Услуги</a>
+        <a href="#about" onclick="closeMobile()">О нас</a>
+        <a href="#reviews" onclick="closeMobile()">Отзывы</a>
+        <a href="#faq" onclick="closeMobile()">Вопросы и ответы</a>
+        <a href="#contacts" onclick="closeMobile()">Контакты</a>
         </div>
 
-        <div class="contact-row">
-          <div class="contact-icon">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.96 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
-          </div>
-          <div>
-            <div class="contact-label">Telegram</div>
-            <div class="contact-value"><a href="https://t.me/+79397043707" target="_blank">Написать в Telegram</a></div>
-          </div>
+        <!-- NAV -->
+        <nav id="nav">
+        <ul class="nav-list">
+            <li><a href="#services">Услуги</a></li>
+            <li><a href="#about">О нас</a></li>
+            <li><a href="#works">Примеры работ</a></li>
+            <li><a href="#faq">Вопрос — ответ</a></li>
+            <li><a href="#contacts">Контакты</a></li>
+        </ul>
+        </nav>
+
+        <!-- HERO -->
+        <section id="hero">
+        <div class="hero-pattern"></div>
+        <div class="hero-content">
+            <div class="hero-badge">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            Профессиональный электрик
+            </div>
+
+            <h1 class="hero-name">НИКОЛАЙ<br><span>ЭЛЕКТРИК</span></h1>
+
+            <p class="hero-tagline">
+            Электромонтажные работы любой сложности — от розетки до замены проводки в квартире или доме
+            </p>
+
+            <div class="hero-phone-wrap">
+            <a href="tel:+79397043707" class="hero-phone">+7 939 704-37-07</a>
+            <a href="tel:+79397043707" class="btn-call">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.5 9.82a19.79 19.79 0 01-3.07-8.63A2 2 0 012.45 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+                Позвонить
+            </a>
+            </div>
+
+            <div class="hero-geo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Работаю по Вашему городу и пригороду
+            </div>
+
+            <div class="hero-socials">
+            <a href="https://t.me/+79397043707" class="social-pill" target="_blank">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.96 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+                Telegram
+            </a>
+            <a href="https://vk.com" class="social-pill" target="_blank">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.408 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.862-.523-2.049-1.713-1.033-1.01-1.49-.525-1.49.516v1.197c0 .304-.229.525-.525.525h-.607c-1.744 0-3.693-1.061-5.061-3.034-2.05-2.9-2.614-5.042-2.614-5.494 0-.33.234-.55.525-.55h1.764c.389 0 .525.184.66.553.669 1.992 1.788 3.738 2.25 3.738.172 0 .262-.08.262-.52V9.498c-.053-.929-.543-.98-.543-1.303 0-.182.145-.37.38-.37h2.778c.33 0 .447.178.447.567v3.037c0 .33.146.447.234.447.17 0 .316-.117.635-.447 1.177-1.338 2.025-3.4 2.025-3.4.093-.184.31-.367.635-.367h1.764c.524 0 .64.275.524.55-.222.895-2.36 4.039-2.36 4.039-.17.274-.237.406 0 .708.172.236 1.135 1.103 1.717 1.784.995 1.162 1.7 2.106 1.7 2.106.094.275-.08.55-.37.55z"/></svg>
+                ВКонтакте
+            </a>
+            </div>
         </div>
 
-        <div class="contact-row">
-          <div class="contact-icon" style="border-color:rgba(255,255,255,0.08); background:rgba(255,255,255,0.04);">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" color="rgba(255,255,255,0.5)"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          </div>
-          <div>
-            <div class="contact-label" style="color:rgba(255,255,255,0.3);">График работы</div>
-            <table class="schedule-table" style="margin-top:8px;">
-              <tr>
-                <td style="color:rgba(255,255,255,0.5);">Пн — Пт</td>
-                <td style="color:#fff;">8:00 — 20:00</td>
-              </tr>
-              <tr>
-                <td style="color:rgba(255,255,255,0.5);">Суббота</td>
-                <td style="color:#fff;">9:00 — 18:00</td>
-              </tr>
-              <tr>
-                <td style="color:rgba(255,255,255,0.5);">Воскресенье</td>
-                <td style="color:rgba(255,255,255,0.4);">По договорённости</td>
-              </tr>
-              <tr>
-                <td style="color:rgba(255,255,255,0.5); border-bottom:none;">Аварийный выезд</td>
-                <td style="border-bottom:none;"><span class="badge-open">При возможности</span></td>
-              </tr>
-            </table>
-          </div>
+        <div class="hero-image-wrap">
+            <div class="hero-image-bg"></div>
+            <div class="hero-img-placeholder">
+            <div class="hero-icon-grid">
+                <div class="hero-icon-card">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+                <span>Щитки</span>
+                </div>
+                <div class="hero-icon-card">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                <span>Проводка</span>
+                </div>
+                <div class="hero-icon-card">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+                <span>Освещение</span>
+                </div>
+                <div class="hero-icon-card">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="17" r="1"/></svg>
+                <span>Розетки</span>
+                </div>
+                <div class="hero-icon-card">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                <span>Дома</span>
+                </div>
+                <div class="hero-icon-card">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <span>Гарантия</span>
+                </div>
+            </div>
+            </div>
         </div>
+        </section>
 
-      </div>
+        <!-- SERVICES -->
+        <section class="section" id="services">
+        <div class="container">
+            <div class="section-header">
+            <span class="section-label">Что я делаю</span>
+            <h2 class="section-title">УСЛУГИ</h2>
+            <p class="section-desc">Выполняю полный спектр электромонтажных работ для квартир, домов и нежилых помещений</p>
+            </div>
 
-      <!-- FORM -->
-      <div class="form-wrap">
-        <div class="form-title">Оставить заявку</div>
-        <p class="form-sub">Опишите задачу — перезвоню и отвечу на все вопросы</p>
+            <div class="services-grid">
 
-        <div class="form-group">
-          <label class="form-label" for="fname">Ваше имя</label>
-          <input class="form-input" id="fname" type="text" placeholder="Как к вам обращаться?">
+            <div class="service-card">
+                <div class="service-img">
+                <div class="service-img-bg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+                <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+                </div>
+                <div class="service-body">
+                <div class="service-name">Замена проводки</div>
+                <p class="service-desc">Полная замена или частичный ремонт электропроводки в квартире, доме или офисе. Прокладка кабеля в штробе или кабель-канале.</p>
+                <a href="tel:+79397043707" class="btn-outline-call">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.5 9.82 19.79 19.79 0 01.43 1.19 2 2 0 012.45 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+                    Позвонить
+                </a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-img">
+                <div class="service-img-bg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="2" y="3" width="20" height="14" rx="2"/></svg></div>
+                <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+                </div>
+                <div class="service-body">
+                <div class="service-name">Монтаж щитка</div>
+                <p class="service-desc">Установка, замена и сборка электрощитов под ключ. Правильная разводка и маркировка групп автоматов.</p>
+                <a href="tel:+79397043707" class="btn-outline-call">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.5 9.82 19.79 19.79 0 01.43 1.19 2 2 0 012.45 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+                    Позвонить
+                </a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-img">
+                <div class="service-img-bg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="5" y="2" width="14" height="20" rx="2"/></svg></div>
+                <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="17" r="1"/></svg></div>
+                </div>
+                <div class="service-body">
+                <div class="service-name">Розетки и выключатели</div>
+                <p class="service-desc">Установка, перенос или замена розеток, выключателей, диммеров. Любые типы и серии.</p>
+                <a href="tel:+79397043707" class="btn-outline-call">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.5 9.82 19.79 19.79 0 01.43 1.19 2 2 0 012.45 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+                    Позвонить
+                </a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-img">
+                <div class="service-img-bg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="12" cy="12" r="10"/></svg></div>
+                <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div>
+                </div>
+                <div class="service-body">
+                <div class="service-name">Монтаж освещения</div>
+                <p class="service-desc">Установка люстр, светильников, споты, LED-лент, точечного освещения. Работа со всеми типами потолков.</p>
+                <a href="tel:+79397043707" class="btn-outline-call">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.5 9.82 19.79 19.79 0 01.43 1.19 2 2 0 012.45 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+                    Позвонить
+                </a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-img">
+                <div class="service-img-bg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div>
+                <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+                </div>
+                <div class="service-body">
+                <div class="service-name">Электрика в новостройках</div>
+                <p class="service-desc">Электромонтаж «под ключ» в квартирах без отделки и домах. Разработка схемы, монтаж с нуля.</p>
+                <a href="tel:+79397043707" class="btn-outline-call">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.5 9.82 19.79 19.79 0 01.43 1.19 2 2 0 012.45 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+                    Позвонить
+                </a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-img">
+                <div class="service-img-bg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 6-6"/></svg></div>
+                <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></div>
+                </div>
+                <div class="service-body">
+                <div class="service-name">Аварийный ремонт</div>
+                <p class="service-desc">Быстрый выезд при аварийных ситуациях: нет света, выбивает автомат, искрит проводка. Выезжаю оперативно.</p>
+                <a href="tel:+79397043707" class="btn-outline-call">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.5 9.82 19.79 19.79 0 01.43 1.19 2 2 0 012.45 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+                    Позвонить
+                </a>
+                </div>
+            </div>
+
+            </div>
         </div>
-        <div class="form-group">
-          <label class="form-label" for="fphone">Телефон</label>
-          <input class="form-input" id="fphone" type="tel" placeholder="+7 (___) ___-__-__">
+        </section>
+
+        <!-- ADVANTAGES / ABOUT -->
+        <section class="section section-dark" id="about">
+        <div class="container">
+            <div class="section-header">
+            <span class="section-label">Почему выбирают меня</span>
+            <h2 class="section-title">О МНЕ</h2>
+            <p class="section-desc">Работаю качественно, аккуратно и с гарантией. Материалы по необходимости закупаю сам.</p>
+            </div>
+
+            <div class="advantages-grid">
+            <div class="adv-card">
+                <div class="adv-stat">10+</div>
+                <div class="adv-title">Лет опыта</div>
+                <p class="adv-desc">Более десяти лет практики в электромонтаже жилых и коммерческих объектов</p>
+            </div>
+            <div class="adv-card">
+                <div class="adv-stat">500+</div>
+                <div class="adv-title">Объектов сдано</div>
+                <p class="adv-desc">Квартиры, частные дома, офисы, магазины — каждый объект сдан вовремя и с гарантией</p>
+            </div>
+            <div class="adv-card">
+                <div class="adv-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <div class="adv-title">Гарантия на работы</div>
+                <p class="adv-desc">Даю письменную гарантию на все выполненные работы. При необходимости приеду и исправлю</p>
+            </div>
+            <div class="adv-card">
+                <div class="adv-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+                </div>
+                <div class="adv-title">Проф. инструмент</div>
+                <p class="adv-desc">Работаю только профессиональным инструментом — качество монтажа и скорость выше</p>
+            </div>
+            <div class="adv-card">
+                <div class="adv-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                </div>
+                <div class="adv-title">Чистота на объекте</div>
+                <p class="adv-desc">Работаю аккуратно: пылесос, защитные чехлы. После завершения работ убираю за собой</p>
+            </div>
+            <div class="adv-card">
+                <div class="adv-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+                </div>
+                <div class="adv-title">Закупка материалов</div>
+                <p class="adv-desc">При необходимости самостоятельно закупаю нужные материалы по хорошим ценам</p>
+            </div>
+            </div>
         </div>
+        </section>
 
-        <label class="form-check">
-          <input type="checkbox" id="fConsent" checked>
-          <span class="form-check-label">Я согласен(а) на обработку персональных данных в соответствии с <a href="#">политикой конфиденциальности</a></span>
-        </label>
+        <!-- WORKS (placeholder section) -->
+        <section class="section section-alt" id="works">
+        <div class="container">
+            <div class="section-header">
+            <span class="section-label">Мои работы</span>
+            <h2 class="section-title">ПРИМЕРЫ РАБОТ</h2>
+            <p class="section-desc">Фотографии с реальных объектов — квартиры, дома, щитки, осветительные системы</p>
+            </div>
+            <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(220px,1fr)); gap:16px;">
+            <!-- placeholders -->
+            <div style="background:var(--border); border-radius:var(--radius-lg); height:200px; display:flex; align-items:center; justify-content:center; color:var(--text-light); font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; text-align:center; padding:16px;">Фото<br>появятся<br>скоро</div>
+            <div style="background:var(--border); border-radius:var(--radius-lg); height:200px; display:flex; align-items:center; justify-content:center; color:var(--text-light); font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; text-align:center; padding:16px;">Замена<br>проводки</div>
+            <div style="background:var(--border); border-radius:var(--radius-lg); height:200px; display:flex; align-items:center; justify-content:center; color:var(--text-light); font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; text-align:center; padding:16px;">Монтаж<br>щитка</div>
+            <div style="background:var(--border); border-radius:var(--radius-lg); height:200px; display:flex; align-items:center; justify-content:center; color:var(--text-light); font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; text-align:center; padding:16px;">Освещение</div>
+            </div>
+        </div>
+        </section>
 
-        <button class="btn-submit" onclick="submitForm()">Отправить заявку</button>
-      </div>
+        <!-- REVIEWS -->
+        <section class="section" id="reviews">
+        <div class="container">
+            <div class="section-header">
+            <span class="section-label">Клиенты о работе</span>
+            <h2 class="section-title">ОТЗЫВЫ</h2>
+            </div>
 
-    </div>
-  </div>
-</section>
+            <div class="reviews-grid">
 
-<!-- FOOTER -->
-<footer id="footer">
-  <div class="footer-copy">
-    © 2020–2026 · знакомый-электрик.рф · Все права защищены
-  </div>
-  <div class="footer-sig">
-    <strong>Николай — электрик</strong> · Ваш город
-  </div>
-</footer>
+            <div class="review-card">
+                <div class="review-stars">
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                </div>
+                <p class="review-text clamped" id="r1">Николай делал полную замену проводки в нашей двушке. Работал аккуратно — постелил плёнку, убрал за собой всю пыль. Всё сделал за 3 дня, как и договаривались. Розетки и выключатели установил ровно и аккуратно. Очень довольны результатом, рекомендую!</p>
+                <button class="btn-expand" onclick="toggleReview('r1', this)">Читать полностью</button>
+                <div class="review-author">
+                <div class="review-avatar">А</div>
+                <div>
+                    <div class="review-name">Анна К.</div>
+                    <div class="review-meta">Замена проводки, квартира</div>
+                </div>
+                </div>
+            </div>
 
-<script>
-  // Burger
-  const burgerBtn = document.getElementById('burgerBtn');
-  const mobileMenu = document.getElementById('mobileMenu');
-  burgerBtn.addEventListener('click', () => {
-    mobileMenu.classList.toggle('open');
-  });
-  function closeMobile() {
-    mobileMenu.classList.remove('open');
-  }
+            <div class="review-card">
+                <div class="review-stars">
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                </div>
+                <p class="review-text clamped" id="r2">Вызывал мастера по аварийной ситуации — выбивало автоматы. Приехал быстро, нашёл причину, объяснил, устранил. Цена за работу адекватная. Теперь всегда обращаюсь только к Николаю по всем вопросам с электрикой.</p>
+                <button class="btn-expand" onclick="toggleReview('r2', this)">Читать полностью</button>
+                <div class="review-author">
+                <div class="review-avatar">С</div>
+                <div>
+                    <div class="review-name">Сергей М.</div>
+                    <div class="review-meta">Аварийный ремонт</div>
+                </div>
+                </div>
+            </div>
 
-  // FAQ
-  function toggleFaq(btn) {
-    const item = btn.closest('.faq-item');
-    const isOpen = item.classList.contains('open');
-    document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
-    if (!isOpen) item.classList.add('open');
-  }
+            <div class="review-card">
+                <div class="review-stars">
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                </div>
+                <p class="review-text clamped" id="r3">Заказывала монтаж освещения в новой квартире: споты на кухне, люстры в комнатах, LED-ленты в нишах. Всё сделано красиво и аккуратно. Провода спрятаны, нигде не торчат. Точно буду рекомендовать всем знакомым!</p>
+                <button class="btn-expand" onclick="toggleReview('r3', this)">Читать полностью</button>
+                <div class="review-author">
+                <div class="review-avatar">О</div>
+                <div>
+                    <div class="review-name">Ольга Т.</div>
+                    <div class="review-meta">Монтаж освещения</div>
+                </div>
+                </div>
+            </div>
 
-  // Reviews expand
-  function toggleReview(id, btn) {
-    const el = document.getElementById(id);
-    const clamped = el.classList.toggle('clamped');
-    btn.textContent = clamped ? 'Читать полностью' : 'Свернуть';
-  }
+            </div>
+        </div>
+        </section>
 
-  // Form submit (stub)
-  function submitForm() {
-    const name = document.getElementById('fname').value.trim();
-    const phone = document.getElementById('fphone').value.trim();
-    const consent = document.getElementById('fConsent').checked;
-    if (!name || !phone) { alert('Пожалуйста, заполните имя и телефон.'); return; }
-    if (!consent) { alert('Пожалуйста, дайте согласие на обработку данных.'); return; }
-    alert('Спасибо, ' + name + '! Я перезвоню вам в ближайшее время.');
-    document.getElementById('fname').value = '';
-    document.getElementById('fphone').value = '';
-  }
+        <!-- FAQ -->
+        <section class="section section-alt" id="faq">
+        <div class="container">
+            <div class="section-header">
+            <span class="section-label">Часто спрашивают</span>
+            <h2 class="section-title">ВОПРОС — ОТВЕТ</h2>
+            </div>
 
-  // Active nav link on scroll
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('#nav .nav-list a');
-  window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(s => {
-      if (window.scrollY >= s.offsetTop - 120) current = s.id;
-    });
-    navLinks.forEach(a => {
-      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
-    });
-  }, { passive: true });
-</script>
-</body>
+            <div class="faq-list" style="max-width: 760px;">
+
+            <div class="faq-item">
+                <button class="faq-q" onclick="toggleFaq(this)">
+                Как быстро вы приедете?
+                <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                </button>
+                <div class="faq-a">Стараюсь приезжать в день обращения или на следующий день. При аварийной ситуации — по возможности максимально быстро. Конкретное время согласовываем по телефону.</div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-q" onclick="toggleFaq(this)">
+                По каким районам работаете?
+                <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                </button>
+                <div class="faq-a">Работаю по всему городу и ближайшим пригородным районам. Уточняйте по телефону — скорее всего, смогу приехать к вам.</div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-q" onclick="toggleFaq(this)">
+                Даёте ли гарантию на работы?
+                <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                </button>
+                <div class="faq-a">Да, даю гарантию на все выполненные работы. Если в гарантийный период возникнет проблема по моей вине — приеду и устраню бесплатно.</div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-q" onclick="toggleFaq(this)">
+                Заключаете ли договор?
+                <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                </button>
+                <div class="faq-a">По желанию заказчика могу работать по договору. Для большинства бытовых задач клиенты предпочитают работать без излишней бюрократии — просто по договорённости.</div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-q" onclick="toggleFaq(this)">
+                Нужно ли покупать материалы заранее?
+                <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                </button>
+                <div class="faq-a">Нет, это необязательно. Если нужно — закуплю всё необходимое сам по хорошим ценам. Вы также можете купить материалы самостоятельно — установлю то, что вы выбрали.</div>
+            </div>
+
+            </div>
+        </div>
+        </section>
+
+        <!-- CONTACTS + FORM -->
+        <section class="section section-dark" id="contacts">
+        <div class="container">
+            <div class="section-header">
+            <span class="section-label">Связаться</span>
+            <h2 class="section-title">КОНТАКТЫ</h2>
+            </div>
+
+            <div class="contacts-grid">
+            <div class="contact-block">
+
+                <div class="contact-row">
+                <div class="contact-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.5 9.82 19.79 19.79 0 01.43 1.19 2 2 0 012.45 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+                </div>
+                <div>
+                    <div class="contact-label">Телефон</div>
+                    <div class="contact-value"><a href="tel:+79397043707">+7 939 704-37-07</a></div>
+                </div>
+                </div>
+
+                <div class="contact-row">
+                <div class="contact-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.96 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+                </div>
+                <div>
+                    <div class="contact-label">Telegram</div>
+                    <div class="contact-value"><a href="https://t.me/+79397043707" target="_blank">Написать в Telegram</a></div>
+                </div>
+                </div>
+
+                <div class="contact-row">
+                <div class="contact-icon" style="border-color:rgba(255,255,255,0.08); background:rgba(255,255,255,0.04);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" color="rgba(255,255,255,0.5)"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <div>
+                    <div class="contact-label" style="color:rgba(255,255,255,0.3);">График работы</div>
+                    <table class="schedule-table" style="margin-top:8px;">
+                    <tr>
+                        <td style="color:rgba(255,255,255,0.5);">Пн — Пт</td>
+                        <td style="color:#fff;">8:00 — 20:00</td>
+                    </tr>
+                    <tr>
+                        <td style="color:rgba(255,255,255,0.5);">Суббота</td>
+                        <td style="color:#fff;">9:00 — 18:00</td>
+                    </tr>
+                    <tr>
+                        <td style="color:rgba(255,255,255,0.5);">Воскресенье</td>
+                        <td style="color:rgba(255,255,255,0.4);">По договорённости</td>
+                    </tr>
+                    <tr>
+                        <td style="color:rgba(255,255,255,0.5); border-bottom:none;">Аварийный выезд</td>
+                        <td style="border-bottom:none;"><span class="badge-open">При возможности</span></td>
+                    </tr>
+                    </table>
+                </div>
+                </div>
+
+            </div>
+
+            <!-- FORM -->
+            <div class="form-wrap">
+                <div class="form-title">Оставить заявку</div>
+                <p class="form-sub">Опишите задачу — перезвоню и отвечу на все вопросы</p>
+
+                <div class="form-group">
+                <label class="form-label" for="fname">Ваше имя</label>
+                <input class="form-input" id="fname" type="text" placeholder="Как к вам обращаться?">
+                </div>
+                <div class="form-group">
+                <label class="form-label" for="fphone">Телефон</label>
+                <input class="form-input" id="fphone" type="tel" placeholder="+7 (___) ___-__-__">
+                </div>
+
+                <label class="form-check">
+                <input type="checkbox" id="fConsent" checked>
+                <span class="form-check-label">Я согласен(а) на обработку персональных данных в соответствии с <a href="#">политикой конфиденциальности</a></span>
+                </label>
+
+                <button class="btn-submit" onclick="submitForm()">Отправить заявку</button>
+            </div>
+
+            </div>
+        </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer id="footer">
+        <div class="footer-copy">
+            © 2020–2026 · знакомый-электрик.рф · Все права защищены
+        </div>
+        <div class="footer-sig">
+            <strong>Николай — электрик</strong> · Ваш город
+        </div>
+        </footer>
+
+        <script src="script.js"></script>
+    </body>
 </html>

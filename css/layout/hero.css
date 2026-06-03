@@ -1,0 +1,200 @@
+/* ─── HERO ─── */
+  #hero {
+    margin-top: var(--header-h);
+    background: var(--dark);
+    min-height: 560px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .hero-pattern {
+    position: absolute;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 20px,
+        rgba(255,255,255,0.015) 20px,
+        rgba(255,255,255,0.015) 21px
+      );
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 64px 48px 64px 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 24px;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--amber);
+    color: var(--dark);
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 2px;
+    width: fit-content;
+  }
+
+  .hero-name {
+    font-size: clamp(52px, 7vw, 88px);
+    color: #fff;
+    line-height: 0.9;
+  }
+
+  .hero-name span { color: var(--amber); }
+
+  .hero-tagline {
+    font-size: 15px;
+    color: rgba(255,255,255,0.55);
+    font-weight: 400;
+    max-width: 340px;
+    line-height: 1.6;
+    border-left: 3px solid var(--red);
+    padding-left: 14px;
+  }
+
+  .hero-phone-wrap {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .hero-phone {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    color: var(--amber);
+    letter-spacing: 0.06em;
+  }
+
+  .hero-phone:hover { color: var(--amber-light); }
+
+  .btn-call {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--red);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 12px 24px;
+    border-radius: var(--radius);
+    border: none;
+    cursor: pointer;
+    transition: all .2s;
+    text-decoration: none;
+  }
+
+  .btn-call:hover { background: var(--red-dark); transform: translateY(-1px); }
+
+  .hero-geo {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: rgba(255,255,255,0.45);
+    font-size: 13px;
+  }
+
+  .hero-geo svg { width: 14px; height: 14px; color: var(--amber); flex-shrink: 0; }
+
+  .hero-socials {
+    display: flex;
+    gap: 10px;
+    margin-top: 4px;
+  }
+
+  .social-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 18px;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.8);
+    transition: all .2s;
+  }
+
+  .social-pill:hover {
+    background: rgba(255,255,255,0.08);
+    border-color: rgba(255,255,255,0.3);
+    color: #fff;
+  }
+
+  .social-pill svg { width: 18px; height: 18px; }
+
+  .hero-image-wrap {
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+
+  .hero-image-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 70% 30%, rgba(232,146,10,0.15) 0%, transparent 60%),
+      radial-gradient(ellipse at 30% 80%, rgba(200,40,30,0.1) 0%, transparent 50%);
+  }
+
+  .hero-img-placeholder {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    padding: 48px;
+  }
+
+  .hero-icon-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .hero-icon-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 20px 12px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    transition: all .3s;
+    cursor: default;
+  }
+
+  .hero-icon-card:hover {
+    background: rgba(232,146,10,0.12);
+    border-color: rgba(232,146,10,0.4);
+    transform: translateY(-3px);
+  }
+
+  .hero-icon-card svg { width: 28px; height: 28px; color: var(--amber); }
+  .hero-icon-card span { font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.55); letter-spacing: 0.05em; text-transform: uppercase; }
