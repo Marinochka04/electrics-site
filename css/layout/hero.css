@@ -1,4 +1,4 @@
-/* ─── HERO ─── */
+  /* ─── HERO ─── */
   #hero {
     margin-top: var(--header-h);
     background: var(--dark);
@@ -143,58 +143,14 @@
     z-index: 2;
     overflow: hidden;
     display: flex;
-    align-items: flex-end;
-    justify-content: center;
+    align-items: stretch;
+    justify-content: stretch;
+    min-height: 480px;
+    background: transparent;
   }
 
-  .hero-image-bg {
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse at 70% 30%, rgba(232,146,10,0.15) 0%, transparent 60%),
-      radial-gradient(ellipse at 30% 80%, rgba(200,40,30,0.1) 0%, transparent 50%);
-  }
-
-  .hero-img-placeholder {
-    position: relative;
-    z-index: 2;
+  .hero-image-wrap svg {
     width: 100%;
     height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 20px;
-    padding: 48px;
+    display: block;
   }
-
-  .hero-icon-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    width: 100%;
-    max-width: 320px;
-  }
-
-  .hero-icon-card {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 12px;
-    padding: 20px 12px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    transition: all .3s;
-    cursor: default;
-  }
-
-  .hero-icon-card:hover {
-    background: rgba(232,146,10,0.12);
-    border-color: rgba(232,146,10,0.4);
-    transform: translateY(-3px);
-  }
-
-  .hero-icon-card svg { width: 28px; height: 28px; color: var(--amber); }
-  .hero-icon-card span { font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.55); letter-spacing: 0.05em; text-transform: uppercase; }
