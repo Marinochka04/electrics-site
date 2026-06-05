@@ -32,17 +32,12 @@ overflow: hidden;
 position: relative;
 }
 
-.service-img-bg {
-position: absolute;
-inset: 0;
-display: flex;
-align-items: center;
-justify-content: center;
+.service-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
-
-.service-img svg { width: 64px; height: 64px; color: var(--amber); opacity: 0.25; }
-.service-img .service-icon { position: relative; z-index: 2; }
-.service-img .service-icon svg { width: 52px; height: 52px; color: var(--amber); opacity: 1; }
 
 .service-body { padding: 20px; flex: 1; display: flex; flex-direction: column; gap: 10px; }
 
