@@ -1,85 +1,173 @@
-.contacts-grid {
+/* ─── CONTACTS ─── */
+.contacts-v3 {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 48px;
-    align-items: start;
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
 }
 
-.contact-block {
+.contacts-left {
+    padding: 40px 36px;
+    border-right: 1px solid rgba(255,255,255,0.07);
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 0;
 }
 
-.contact-row {
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
+.contacts-right {
+    padding: 40px 36px;
 }
 
-.contact-icon {
-    width: 44px; height: 44px;
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    border-radius: 10px;
+.contacts-phone {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(28px, 3.5vw, 42px);
+    color: var(--amber);
+    letter-spacing: 0.04em;
+    display: block;
+    text-decoration: none;
+    margin-bottom: 24px;
+    transition: color .2s;
+}
+
+.contacts-phone:hover { 
+    color: var(--amber-light); 
+}
+
+.contacts-socials {
     display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+}
+
+.contacts-soc-btn {
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0;
-}
-
-.contact-icon svg { 
-    width: 20px; 
-    height: 20px; 
-    color: var(--red); 
-}
-
-.contact-label { 
-    font-size: 11px; 
-    font-weight: 700; 
-    letter-spacing: 0.12em; 
-    text-transform: uppercase; 
-    color: var(--text-light); 
-    margin-bottom: 4px; 
-}
-
-.contact-value { 
-    font-size: 17px;
+    gap: 8px;
+    padding: 12px 18px;
+    border-radius: 8px;
+    font-size: 13px;
     font-weight: 700;
-    color: var(--text);
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    transition: all .2s;
+    flex: 1;
 }
 
-.contact-value a:hover { 
-    color: var(--red); 
+.contacts-soc-btn:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,0.24);
+    color: #fff;
+    transform: translateY(-2px);
 }
 
-.schedule-table { 
-    width: 100%; 
-    border-collapse: collapse; 
-    font-size: 14px; 
+.contacts-soc-btn svg { 
+    width: 16px; 
+    height: 16px; 
+    flex-shrink: 0; 
 }
 
-.schedule-table td { 
-    padding: 10px 0; 
-    border-bottom: 1px solid var(--border); 
+.contacts-soc-btn--tg {}
+.contacts-soc-btn--vk {}
+
+.contacts-call-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--red);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 13px 24px;
+    border-radius: var(--radius);
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all .2s;
+    width: fit-content;
 }
 
-.schedule-table td:first-child { 
-    color: var(--text-muted); 
-    width: 55%; 
+.contacts-call-btn:hover { 
+    background: var(--red-dark); 
+    transform: translateY(-1px); 
 }
 
-.schedule-table td:last-child { 
-    font-weight: 700; 
-    text-align: right; 
+.contacts-call-btn svg { 
+    width: 15px; 
+    height: 15px; 
 }
 
-.badge-open { 
-    background: #e6f7ec; 
-    color: #1a8a3a; font-size: 11px; 
-    font-weight: 700; 
-    letter-spacing: 0.08em; 
-    text-transform: uppercase; 
-    padding: 3px 8px; 
-    border-radius: 100px; 
+.contacts-sched-label {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    margin-bottom: 20px;
+}
+
+.contacts-sched-rows { 
+    display: flex; 
+    flex-direction: column; 
+}
+
+.contacts-sched-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.contacts-sched-row:last-child { 
+    border-bottom: none; 
+}
+
+.contacts-sched-day {
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+}
+
+.contacts-sched-time {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 19px;
+    color: #fff;
+    letter-spacing: 0.04em;
+}
+
+.contacts-sched-time--dim { 
+    color: rgba(255,255,255,0.3); 
+    font-size: 15px; 
+    font-family: 'Mulish', sans-serif; 
+    font-weight: 600; 
+}
+
+.badge-avail {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 100px;
+    background: rgba(232,146,10,0.15);
+    color: var(--amber);
+    white-space: nowrap;
+}
+
+@media (max-width: 700px) {
+    .contacts-v3 { 
+        grid-template-columns: 1fr; 
+    }
+
+    .contacts-left { 
+        border-right: none; 
+        border-bottom: 1px solid rgba(255,255,255,0.07); 
+    }
 }
