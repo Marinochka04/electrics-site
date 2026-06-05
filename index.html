@@ -611,49 +611,58 @@
                     <span class="section-label">Часто спрашивают</span>
                     <h2 class="section-title">ВОПРОС — ОТВЕТ</h2>
                 </div>
-
-                <div class="faq-list" style="max-width: 760px;">
-
-                    <div class="faq-item">
-                        <button class="faq-q" onclick="toggleFaq(this)">
-                            Как быстро вы приедете?
-                            <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-                        </button>
-                        <div class="faq-a">Стараюсь приезжать в день обращения или на следующий день. При аварийной ситуации — по возможности максимально быстро. Конкретное время согласовываем по телефону.</div>
+            
+                <div class="faq-grid">
+            
+                    <div class="faq-card">
+                        <div class="faq-card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        </div>
+                        <div class="faq-card-q">Как быстро вы приедете?</div>
+                        <p class="faq-card-a">Стараюсь приезжать в день обращения или на следующий. При аварийной ситуации — по возможности максимально быстро. Время согласовываем по телефону.</p>
                     </div>
-
-                    <div class="faq-item">
-                        <button class="faq-q" onclick="toggleFaq(this)">
-                            По каким районам работаете?
-                            <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-                        </button>
-                        <div class="faq-a">Работаю по всему городу и ближайшим пригородным районам. Уточняйте по телефону — скорее всего, смогу приехать к вам.</div>
+                
+                    <div class="faq-card">
+                        <div class="faq-card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        </div>
+                        <div class="faq-card-q">По каким районам работаете?</div>
+                        <p class="faq-card-a">Работаю по всему городу и ближайшим пригородным районам. Уточняйте по телефону — скорее всего, смогу приехать к вам.</p>
                     </div>
-
-                    <div class="faq-item">
-                        <button class="faq-q" onclick="toggleFaq(this)">
-                            Даёте ли гарантию на работы?
-                            <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-                        </button>
-                        <div class="faq-a">Да, даю гарантию на все выполненные работы. Если в гарантийный период возникнет проблема по моей вине — приеду и устраню бесплатно.</div>
+                
+                    <div class="faq-card">
+                        <div class="faq-card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        </div>
+                        <div class="faq-card-q">Даёте ли гарантию на работы?</div>
+                        <p class="faq-card-a">Да, даю гарантию на все выполненные работы. Если в гарантийный период возникнет проблема по моей вине — приеду и устраню бесплатно.</p>
                     </div>
-
-                    <div class="faq-item">
-                        <button class="faq-q" onclick="toggleFaq(this)">
-                            Заключаете ли договор?
-                            <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-                        </button>
-                        <div class="faq-a">По желанию заказчика могу работать по договору. Для большинства бытовых задач клиенты предпочитают работать без излишней бюрократии — просто по договорённости.</div>
+                
+                    <div class="faq-card">
+                        <div class="faq-card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                        </div>
+                        <div class="faq-card-q">Заключаете ли договор?</div>
+                        <p class="faq-card-a">По желанию заказчика могу работать по договору. Для большинства бытовых задач клиенты предпочитают без лишней бюрократии — просто по договорённости.</p>
                     </div>
-
-                    <div class="faq-item">
-                        <button class="faq-q" onclick="toggleFaq(this)">
-                            Нужно ли покупать материалы заранее?
-                            <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-                        </button>
-                        <div class="faq-a">Нет, это необязательно. Если нужно — закуплю всё необходимое сам по хорошим ценам. Вы также можете купить материалы самостоятельно — установлю то, что вы выбрали.</div>
+                
+                    <div class="faq-card">
+                        <div class="faq-card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+                        </div>
+                        <div class="faq-card-q">Нужно ли покупать материалы заранее?</div>
+                        <p class="faq-card-a">Нет, необязательно. Если нужно — закуплю всё сам по хорошим ценам. Вы также можете купить материалы самостоятельно — установлю то, что выбрали.</p>
                     </div>
-
+                
+                    <div class="faq-card faq-card--dark">
+                        <div class="faq-card-q">Остались вопросы?</div>
+                        <p class="faq-card-a">Позвоните — отвечу на любой вопрос лично, объясню стоимость и сроки по вашей задаче.</p>
+                        <a href="tel:+79397043707" class="btn-faq-call">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.5 9.82 19.79 19.79 0 01.43 1.19 2 2 0 012.45 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+                        Позвонить
+                        </a>
+                    </div>
+            
                 </div>
             </div>
         </section>
