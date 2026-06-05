@@ -47,3 +47,21 @@
       a.classList.toggle('active', a.getAttribute('href') === '#' + current);
     });
   }, { passive: true });
+
+
+  // Скроллер для карусели
+  const strip = document.getElementById('worksStrip');
+
+  document.querySelector('.works-prev').addEventListener('click', () => {
+      strip.scrollBy({
+          left: -260,
+          behavior: 'smooth'
+      });
+  });
+
+  document.querySelector('.works-next').addEventListener('click', () => {
+      strip.scrollBy({
+          left: 260,
+          behavior: 'smooth'
+      });
+  });

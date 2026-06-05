@@ -1,0 +1,96 @@
+/* ─── WORKS STRIP ─── */
+.works-strip-wrap {
+    overflow-x: auto;
+    padding: 4px 28px 16px;
+    cursor: grab;
+}
+
+.works-strip-wrap::-webkit-scrollbar {  
+    display: none; 
+}
+
+.works-slider {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 40px;
+}
+
+.works-strip-wrap {
+    overflow: hidden;
+    flex: 1;
+}
+
+.works-nav {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid var(--amber);
+    background: #fff;
+    color: var(--amber);
+    cursor: pointer;
+    font-size: 20px;
+    flex-shrink: 0;
+    transition: .2s;
+}
+
+.works-nav:hover {
+    background: var(--amber);
+    color: #fff;
+}
+
+.works-strip {
+    display: flex;
+    gap: 14px;
+    width: max-content;
+    padding-bottom: 4px;
+}
+
+.work-item {
+    flex: 0 0 240px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.work-ph {
+    height: 180px;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: var(--border);
+    border: 1px solid var(--border);
+    transition: transform .25s, box-shadow .25s;
+}
+
+.work-ph svg { 
+    width: 100%; 
+    height: 100%; 
+    display: block; 
+}
+
+.work-ph img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform .35s;
+}
+
+.work-item:hover .work-ph {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 32px rgba(0,0,0,0.1);
+}
+
+.work-item:hover .work-ph img { 
+    transform: scale(1.04); 
+}
+
+.work-caption {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    padding: 0 2px;
+}
