@@ -1,4 +1,3 @@
-/* ─── NAV ─── */
 #nav {
     position: sticky;
     top: var(--header-h);
@@ -9,7 +8,9 @@
     scrollbar-width: none;
 }
 
-#nav::-webkit-scrollbar { display: none; }
+#nav::-webkit-scrollbar { 
+    display: none; 
+}
 
 .nav-list {
     display: flex;

@@ -1,5 +1,4 @@
-  /* ─── HERO ─── */
-  #hero {
+#hero {
     margin-top: var(--header-h);
     background: var(--dark);
     min-height: 560px;
@@ -7,22 +6,22 @@
     grid-template-columns: 1fr 1fr;
     overflow: hidden;
     position: relative;
-  }
+}
 
-  .hero-pattern {
+.hero-pattern {
     position: absolute;
     inset: 0;
     background-image:
-      repeating-linear-gradient(
+        repeating-linear-gradient(
         -45deg,
         transparent,
         transparent 20px,
         rgba(255,255,255,0.015) 20px,
         rgba(255,255,255,0.015) 21px
-      );
-  }
+        );
+}
 
-  .hero-content {
+.hero-content {
     position: relative;
     z-index: 2;
     padding: 64px 48px 64px 48px;
@@ -30,9 +29,9 @@
     flex-direction: column;
     justify-content: center;
     gap: 24px;
-  }
+}
 
-  .hero-badge {
+.hero-badge {
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -45,17 +44,19 @@
     padding: 6px 14px;
     border-radius: 2px;
     width: fit-content;
-  }
+}
 
-  .hero-name {
+.hero-name {
     font-size: clamp(52px, 7vw, 88px);
     color: #fff;
     line-height: 0.9;
-  }
+}
 
-  .hero-name span { color: var(--amber); }
+.hero-name span { 
+    color: var(--amber); 
+}
 
-  .hero-tagline {
+.hero-tagline {
     font-size: 15px;
     color: rgba(255,255,255,0.55);
     font-weight: 400;
@@ -63,25 +64,27 @@
     line-height: 1.6;
     border-left: 3px solid var(--red);
     padding-left: 14px;
-  }
+}
 
-  .hero-phone-wrap {
+.hero-phone-wrap {
     display: flex;
     align-items: center;
     gap: 16px;
     flex-wrap: wrap;
-  }
+}
 
-  .hero-phone {
+.hero-phone {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 32px;
     color: var(--amber);
     letter-spacing: 0.06em;
-  }
+}
 
-  .hero-phone:hover { color: var(--amber-light); }
+.hero-phone:hover { 
+    color: var(--amber-light); 
+}
 
-  .btn-call {
+.btn-call {
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -97,27 +100,35 @@
     cursor: pointer;
     transition: all .2s;
     text-decoration: none;
-  }
+}
 
-  .btn-call:hover { background: var(--red-dark); transform: translateY(-1px); }
+.btn-call:hover { 
+    background: var(--red-dark); 
+    transform: translateY(-1px); 
+}
 
-  .hero-geo {
+.hero-geo {
     display: flex;
     align-items: center;
     gap: 6px;
     color: rgba(255,255,255,0.45);
     font-size: 13px;
-  }
+}
 
-  .hero-geo svg { width: 14px; height: 14px; color: var(--amber); flex-shrink: 0; }
+.hero-geo svg { 
+    width: 14px; 
+    height: 14px; 
+    color: var(--amber); 
+    flex-shrink: 0; 
+}
 
-  .hero-socials {
+.hero-socials {
     display: flex;
     gap: 10px;
     margin-top: 4px;
-  }
+}
 
-  .social-pill {
+.social-pill {
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -128,17 +139,20 @@
     font-weight: 600;
     color: rgba(255,255,255,0.8);
     transition: all .2s;
-  }
+}
 
-  .social-pill:hover {
+.social-pill:hover {
     background: rgba(255,255,255,0.08);
     border-color: rgba(255,255,255,0.3);
     color: #fff;
-  }
+}
 
-  .social-pill svg { width: 18px; height: 18px; }
+.social-pill svg { 
+    width: 18px; 
+    height: 18px; 
+}
 
-  .hero-image-wrap {
+.hero-image-wrap {
     position: relative;
     z-index: 2;
     overflow: hidden;
@@ -147,10 +161,10 @@
     justify-content: stretch;
     min-height: 480px;
     background: transparent;
-  }
+}
 
-  .hero-image-wrap svg {
+.hero-image-wrap svg {
     width: 100%;
     height: 100%;
     display: block;
-  }
+}

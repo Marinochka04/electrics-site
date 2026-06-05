@@ -1,31 +1,32 @@
-/* ─── MOBILE MENU ─── */
 .mobile-menu {
-display: none;
-position: fixed;
-top: var(--header-h);
-left: 0; right: 0;
-background: var(--dark2);
-border-top: 1px solid rgba(255,255,255,0.06);
-z-index: 950;
-padding: 16px 0;
+    display: none;
+    position: fixed;
+    top: var(--header-h);
+    left: 0; right: 0;
+    background: var(--dark2);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    z-index: 950;
+    padding: 16px 0;
 }
 
-.mobile-menu.open { display: block; }
+.mobile-menu.open { 
+    display: block; 
+}
 
 .mobile-menu a {
-display: block;
-padding: 14px 28px;
-font-size: 14px;
-font-weight: 700;
-letter-spacing: 0.06em;
-text-transform: uppercase;
-color: rgba(255,255,255,0.7);
-border-left: 3px solid transparent;
-transition: all .2s;
+    display: block;
+    padding: 14px 28px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    border-left: 3px solid transparent;
+    transition: all .2s;
 }
 
 .mobile-menu a:hover {
-color: var(--amber);
-border-left-color: var(--amber);
-background: rgba(255,255,255,0.03);
+    color: var(--amber);
+    border-left-color: var(--amber);
+    background: rgba(255,255,255,0.03);
 }

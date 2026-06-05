@@ -1,51 +1,64 @@
-/* ─── FAQ ─── */
-.faq-list { display: flex; flex-direction: column; gap: 4px; }
+.faq-list { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 4px; 
+}
 
 .faq-item {
-background: var(--surface);
-border: 1px solid var(--border);
-border-radius: var(--radius-lg);
-overflow: hidden;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
 }
 
 .faq-q {
-width: 100%;
-text-align: left;
-padding: 20px 24px;
-background: none;
-border: none;
-cursor: pointer;
-font-family: 'Mulish', sans-serif;
-font-size: 15px;
-font-weight: 700;
-color: var(--text);
-display: flex;
-justify-content: space-between;
-align-items: center;
-gap: 16px;
-transition: color .2s;
+    width: 100%;
+    text-align: left;
+    padding: 20px 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'Mulish', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    transition: color .2s;
 }
 
-.faq-q:hover { color: var(--red); }
+.faq-q:hover { 
+    color: var(--red); 
+}
 
 .faq-arrow {
-width: 20px; height: 20px;
-flex-shrink: 0;
-color: var(--text-light);
-transition: transform .3s;
+    width: 20px; height: 20px;
+    flex-shrink: 0;
+    color: var(--text-light);
+    transition: transform .3s;
 }
 
-.faq-item.open .faq-arrow { transform: rotate(180deg); color: var(--red); }
-.faq-item.open .faq-q { color: var(--red); }
+.faq-item.open .faq-arrow { 
+    transform: rotate(180deg); 
+    color: var(--red); 
+}
+
+.faq-item.open .faq-q { 
+    color: var(--red); 
+}
 
 .faq-a {
-display: none;
-padding: 0 24px 20px;
-font-size: 14px;
-color: var(--text-muted);
-line-height: 1.7;
-border-top: 1px solid var(--border);
-padding-top: 16px;
+    display: none;
+    padding: 0 24px 20px;
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
 }
 
-.faq-item.open .faq-a { display: block; }
+.faq-item.open .faq-a { 
+    display: block; 
+}
