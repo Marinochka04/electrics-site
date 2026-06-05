@@ -49,7 +49,7 @@
   }, { passive: true });
 
 
-  // Скроллер для карусели
+  // Скроллер для карусели фото работ
   const strip = document.getElementById('worksStrip');
 
   document.querySelector('.works-prev').addEventListener('click', () => {
@@ -65,3 +65,27 @@
           behavior: 'smooth'
       });
   });
+
+  // Скроллер для карусели отзывов
+  const reviewsStrip = document.getElementById('reviewsStrip');
+
+  const reviewsPrev = document.querySelector('.reviews-prev');
+  const reviewsNext = document.querySelector('.reviews-next');
+
+  if (reviewsStrip && reviewsPrev && reviewsNext) {
+
+      reviewsPrev.addEventListener('click', () => {
+          reviewsStrip.scrollBy({
+              left: -400,
+              behavior: 'smooth'
+          });
+      });
+
+      reviewsNext.addEventListener('click', () => {
+          reviewsStrip.scrollBy({
+              left: 400,
+              behavior: 'smooth'
+          });
+      });
+
+  }

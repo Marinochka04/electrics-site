@@ -93,3 +93,41 @@
 .btn-expand:hover { 
     color: var(--red-dark); 
 }
+
+.reviews-slider{
+    display:flex;
+    align-items:center;
+    gap:16px;
+}
+
+.reviews-wrap{
+    overflow:hidden;
+    flex:1;
+}
+
+.reviews-grid{
+    display:flex;
+    gap:24px;
+    width:max-content;
+}
+
+.review-card{
+    flex:0 0 360px;
+}
+
+.reviews-nav{
+    width:44px;
+    height:44px;
+    border-radius:50%;
+    border:1px solid var(--amber);
+    background:#fff;
+    color:var(--amber);
+    cursor:pointer;
+    font-size:20px;
+    transition:.2s;
+}
+
+.reviews-nav:hover{
+    background:var(--amber);
+    color:#fff;
+}
