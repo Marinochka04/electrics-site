@@ -37,3 +37,26 @@
     color: var(--red);
     border-bottom-color: var(--red);
 }
+
+@media (max-width: 768px) {
+    .nav-list {
+        padding: 0;
+        justify-content: space-evenly;
+    }
+
+    .nav-list li {
+        flex: 1;
+    }
+
+    .nav-list a {
+        text-align: center;
+        letter-spacing: 0.04em;
+    }
+}
+
+@media (max-width: 640px) {
+    #nav {
+        display: none;
+    }
+
+}
