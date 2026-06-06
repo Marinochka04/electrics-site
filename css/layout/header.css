@@ -113,3 +113,17 @@
 	border-radius: 2px;
 	transition: all .3s;
 }
+
+@media (max-width: 640px) {
+    .header-location, .header-phone { 
+		display: none; 
+	}
+
+    .burger { 
+		display: flex; 
+	}
+
+    .header-socials { 
+		display: none; 
+	}
+}

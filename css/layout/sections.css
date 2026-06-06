@@ -55,3 +55,9 @@
 .section-dark .section-desc { 
     color: rgba(255,255,255,0.5); 
 }
+
+@media (max-width: 640px) {
+    .section { 
+        padding: 56px 0; 
+    }
+}
