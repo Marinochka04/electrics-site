@@ -171,3 +171,47 @@
         border-bottom: 1px solid rgba(255,255,255,0.07); 
     }
 }
+
+@media (max-width: 420px) {
+    .contacts-left,
+    .contacts-right {
+        padding: 24px 20px;
+        text-align: center;
+        align-items: center;
+    }
+
+    .contacts-phone {
+        text-align: center;
+    }
+
+    .contacts-sched-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 3px;
+        padding: 11px 0;
+    }
+
+    .contacts-sched-time {
+        font-size: 17px;
+    }
+
+    .contacts-sched-label {
+        text-align: center;
+    }
+
+    .contacts-socials {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .contacts-soc-btn {
+        flex: none;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .contacts-call-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
