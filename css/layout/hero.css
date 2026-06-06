@@ -31,21 +31,6 @@
     gap: 24px;
 }
 
-.hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--amber);
-    color: var(--dark);
-    font-size: 11px;
-    font-weight: 900;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    padding: 6px 14px;
-    border-radius: 2px;
-    width: fit-content;
-}
-
 .hero-name {
     font-size: clamp(52px, 7vw, 88px);
     color: #fff;
@@ -222,10 +207,6 @@
         padding: 52px 32px;
         align-items: center;
         text-align: center;
-    }
-
-    .hero-badge {
-        align-self: center;
     }
 
     .hero-tagline {
