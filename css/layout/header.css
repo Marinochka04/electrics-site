@@ -114,6 +114,18 @@
 	transition: all .3s;
 }
 
+@media (min-width: 1440px) {
+    #header { 
+        padding: 0 clamp(28px, 4vw, 80px); 
+	}
+}
+
+@media (min-width: 1920px) {
+    #header { 
+		padding: 0 clamp(28px, 5vw, 120px); 
+	}
+}
+
 @media (max-width: 640px) {
     .header-location, .header-phone { 
 		display: none; 
