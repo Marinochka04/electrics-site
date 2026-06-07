@@ -38,7 +38,8 @@
 }
 
 .hero-name span { 
-    color: var(--amber); 
+    color: var(--amber);
+    font-size: 1.12em;
 }
 
 .hero-tagline {
