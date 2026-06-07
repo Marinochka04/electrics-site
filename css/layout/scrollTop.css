@@ -1,0 +1,46 @@
+#scrollTop {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: #1e1e1a;
+    border: 1.5px solid #e8920a;
+    color: #e8920a;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 990;
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity .25s, transform .25s, background .2s, border-color .2s;
+    pointer-events: none;
+}
+
+#scrollTop svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+#scrollTop.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+#scrollTop:hover {
+    background: #e8920a;
+    color: #1e1e1a;
+}
+
+@media (max-width: 640px) {
+    #scrollTop {
+        bottom: 20px;
+        right: 20px;
+        width: 44px;
+        height: 44px;
+    }
+}

@@ -35,57 +35,60 @@ function submitForm() {
     document.getElementById('fphone').value = '';
 }
 
-// Active nav link on scroll
+// Active nav + кнопка наверх - один scroll-listener
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('#nav .nav-list a');
+const scrollTopBtn = document.getElementById('scrollTop');
+ 
 window.addEventListener('scroll', () => {
+    // активная ссылка в навигации
     let current = '';
     sections.forEach(s => {
-    if (window.scrollY >= s.offsetTop - 120) current = s.id;
+        if (window.scrollY >= s.offsetTop - 120) current = s.id;
     });
     navLinks.forEach(a => {
-    a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+        a.classList.toggle('active', a.getAttribute('href') === '#' + current);
     });
+ 
+    // кнопка наверх
+    if (scrollTopBtn) {
+        if (window.scrollY > 400) {
+            scrollTopBtn.classList.add('visible');
+        } else {
+            scrollTopBtn.classList.remove('visible');
+        }
+    }
 }, { passive: true });
-
-
+ 
+// клик — наверх
+if (scrollTopBtn) {
+    scrollTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
+ 
 // Скроллер для карусели фото работ
 const strip = document.getElementById('worksStrip');
-
+ 
 document.querySelector('.works-prev').addEventListener('click', () => {
-    strip.scrollBy({
-        left: -260,
-        behavior: 'smooth'
-    });
+    strip.scrollBy({ left: -260, behavior: 'smooth' });
 });
-
+ 
 document.querySelector('.works-next').addEventListener('click', () => {
-    strip.scrollBy({
-        left: 260,
-        behavior: 'smooth'
-    });
+    strip.scrollBy({ left: 260, behavior: 'smooth' });
 });
-
+ 
 // Скроллер для карусели отзывов
 const reviewsStrip = document.getElementById('reviewsStrip');
-
 const reviewsPrev = document.querySelector('.reviews-prev');
 const reviewsNext = document.querySelector('.reviews-next');
-
+ 
 if (reviewsStrip && reviewsPrev && reviewsNext) {
-
     reviewsPrev.addEventListener('click', () => {
-        reviewsStrip.scrollBy({
-            left: -400,
-            behavior: 'smooth'
-        });
+        reviewsStrip.scrollBy({ left: -400, behavior: 'smooth' });
     });
-
+ 
     reviewsNext.addEventListener('click', () => {
-        reviewsStrip.scrollBy({
-            left: 400,
-            behavior: 'smooth'
-        });
+        reviewsStrip.scrollBy({ left: 400, behavior: 'smooth' });
     });
-
 }
