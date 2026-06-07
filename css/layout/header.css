@@ -29,14 +29,15 @@
 .logo-text {
 	font-family: 'Bebas Neue', sans-serif;
 	font-size: 20px;
-	letter-spacing: 0.06em;
+	letter-spacing: 0.065em;
 	color: #fff;
 	line-height: 1.1;
 }
 
-.logo-text span { 
-	color: var(--amber);
-	font-size: 22px;
+.logo-text span {
+	letter-spacing: 0.05em;
+    color: var(--amber);
+    font-size: 22px;
 }
 
 .header-center {
