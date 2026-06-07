@@ -1,7 +1,5 @@
-/* ─── WORKS STRIP ─── */
 .works-strip-wrap {
     overflow-x: auto;
-    padding: 4px 28px 16px;
     cursor: grab;
 }
 
